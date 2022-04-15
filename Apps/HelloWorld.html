@@ -49,11 +49,13 @@
       document.querySelector('#graph-display').disabled = false; //ボタン有効
       var chart;
       document.querySelector('#graph-display').onclick = function() {
-        if (typeof chart !== 'undefined' && chart) { //グラフ消す
+        <script src="./chart_sample2.js"></script>
+      };
+<!--         if (typeof chart !== 'undefined' && chart) { //グラフ消す
           chart.destroy();
           chart = undefined;
           document.querySelector('#graph-display').innerText = "グラフ表示";
-        } else {
+        } else { -->
 //           var options = {
 //           series: [{
 //           data: data.slice()
@@ -117,7 +119,7 @@
 //         }])
 //       }, 1000)
       
-          var options = {
+<!--           var options = {
             chart: {
               height: '25%',
               width: '25%',
@@ -125,7 +127,7 @@
               background: '#fff',
               toolbar: {
                 show: false,
-               },
+               }, -->
 //               events: {
 //                 click: function(event, chartContext, config) {
 //                   console.log(event);
@@ -133,7 +135,7 @@
 //                   console.log(config);
 //                 }
 //               },
-              animations: {
+<!--               animations: {
                 enabled: true,
                 speed: 800,
                 animateGradually: {
@@ -158,7 +160,7 @@
           }
           chart = new ApexCharts(document.querySelector("#chart"), options);
           chart.render();
-          document.querySelector('#graph-display').innerText = "グラフ非表示";
+          document.querySelector('#graph-display').innerText = "グラフ非表示"; -->
           
 //           let start = Date.now();
 //           const chart_graph = document.querySelector('#chart');
@@ -172,8 +174,8 @@
 //             if (timePassed > 500) clearInterval(timer);
 
 //             }, 20);
-          }
-      };
+<!--           }
+      }; -->
       
       // https://github.com/apexcharts/apexcharts.js/blob/main/samples/vue/line/realtime.html 
       // https://apexcharts.com/javascript-chart-demos/line-charts/realtime/
