@@ -12,23 +12,109 @@
     />
     <title>Hello World!</title>
     <script src="../Build/Cesium/Cesium.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <link rel="stylesheet" href="./chart_sample.css">
     <style>
       @import url(../Build/Cesium/Widgets/widgets.css);
       html,
       body,
       #cesiumContainer {
-        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
         height: 100%;
+        width: 100%;
         margin: 0;
-        padding: 0;
         overflow: hidden;
+        padding: 0;
+        font-family: sans-serif;
       }
+      #toolbar { z-index: 1; position: fixed; top: 5px; left: 5px; }
+/*       @import url(../Build/Cesium/Widgets/chart_sample.css); */
+     
     </style>
   </head>
   <body>
     <div id="cesiumContainer"></div>
+    <div id="toolbar">
+<!--       <button id="genczml" disabled>人流生成</button>
+      <button id="genczmlweight" disabled>車いす人流生成</button>
+      <button id="toggle-geojson" disabled>経路ネットワーク編集トグル</button> -->
+      <button id="graph-display" disabled>グラフ表示</button>
+    </div>
+    <div id="chart"></div>
     <script>
-      const viewer = new Cesium.Viewer("cesiumContainer");
+      var viewer = new Cesium.Viewer("cesiumContainer");
+     
+      document.querySelector('#graph-display').disabled = false; //ボタン有効
+      var chart;
+      document.querySelector('#graph-display').onclick = function() {
+        if (typeof chart !== 'undefined' && chart) { //グラフ消す
+          chart.destroy();
+          chart = undefined;
+          document.querySelector('#graph-display').innerText = "グラフ表示";
+        } else {
+          var options = {
+            chart: {
+              height: '25%',
+              width: '25%',
+              type: 'line', //radar
+              background: '#fff',
+              toolbar: {
+                show: false,
+               },
+//               events: {
+//                 click: function(event, chartContext, config) {
+//                   console.log(event);
+//                   console.log(chartContext);
+//                   console.log(config);
+//                 }
+//               },
+              animations: {
+                enabled: true,
+                speed: 800,
+                animateGradually: {
+                    enabled: true,
+                    delay: 400
+                }
+              }
+            },
+            series: [
+              {
+                name: "ライン",
+                type: 'line',
+                data: [45, 52, 38, 24, 33, 10]
+              },
+              {
+                name: "column",
+                type: 'column',
+                data: [26, 21, 20, 6, 8, 15]
+              }
+            ],
+            labels: ['4月', 'May', 'June', 'July', 'August', 'September']
+          }
+          chart = new ApexCharts(document.querySelector("#chart"), options);
+          chart.render();
+          document.querySelector('#graph-display').innerText = "グラフ非表示";
+          
+          let start = Date.now();
+          const chart_graph = document.querySelector('#chart');
+
+          let timer = setInterval(function() {
+            let timePassed = Date.now() - start;
+
+            chart_graph.style.left = timePassed / 5 + 'px';
+            chart_graph.style.top = timePassed / 5 + 'px';
+
+            if (timePassed > 500) clearInterval(timer);
+
+            }, 20);
+          }
+      };
+      // https://github.com/apexcharts/apexcharts.js/blob/main/samples/vue/line/realtime.html 
+      // https://apexcharts.com/javascript-chart-demos/line-charts/realtime/
+      
+              
     </script>
   </body>
 </html>
