@@ -6,7 +6,7 @@
         animation-duration: 5s;
         animation-iteration-count: 1;
         transition: 5s; */
-        animation: chartright 4s ease 0s infinite reverse;
+        animation: chartright 4s ease 0s infinite normal;
       }
       @keyframes chartright {
         from {
