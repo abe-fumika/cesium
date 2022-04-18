@@ -11,7 +11,10 @@
         animation: chartright 2s;
 /*         transform:translateY(-10px); */
       }
-      @keyframes chartright {
+#chart.is-show {
+    opacity: 1;
+}
+@keyframes chartright {
         0% {
           opacity: 0;
           transform:translateY(100px);
@@ -20,5 +23,5 @@
           opacity: 1;
           transform: translateY(0);
         }
-      }
+}
 
