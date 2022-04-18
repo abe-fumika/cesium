@@ -162,8 +162,9 @@
           }
 
           chart = new ApexCharts(document.querySelector("#chart"), options);
-//           chart.render();
-//           document.querySelector('#graph-display').innerText = "グラフ非表示";
+          console.log(chart);
+          chart.render();
+          document.querySelector('#graph-display').innerText = "グラフ非表示";
           
           let start = Date.now();
           const chart_graph = document.querySelector('#chart');
@@ -177,7 +178,7 @@
             if (timePassed > 500) clearInterval(timer);
 
             }, 20);
-           chart.render();
+
        }
           document.querySelector('#graph-display').innerText = "グラフ非表示";
       };
