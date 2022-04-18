@@ -51,7 +51,7 @@
      
       document.querySelector('#graph-display').disabled = false; //ボタン有効
       var chart;
- 
+      var chart_sample = document.getElementById('chart');
       document.querySelector('#graph-display').onclick = function() {
         if (typeof chart !== 'undefined' && chart) { //グラフ消す
           chart.destroy();
@@ -164,7 +164,7 @@
           chart = new ApexCharts(document.querySelector("#chart"), options);
           chart.render();
           document.querySelector('#graph-display').innerText = "グラフ非表示";
-          
+          chart_sample.classList.add('is-show');
 //           let start = Date.now();
 //           const chart_graph = document.querySelector('#chart');
 
