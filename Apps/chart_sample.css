@@ -7,7 +7,7 @@
         animation-iteration-count: 1;
         transition: 5s; */
 /*         animation: chartright 4s both 0s 1 normal; */
-        animation: chartright 2s both;
+        animation: chartright 2s;
         transform:translateY(-10px);
       }
       @keyframes chartright {
