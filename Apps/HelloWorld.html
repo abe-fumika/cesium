@@ -51,7 +51,6 @@
      
       document.querySelector('#graph-display').disabled = false; //ボタン有効
       var chart;
-      var chart_sample = document.getElementById('chart');
       document.querySelector('#graph-display').onclick = function() {
         if (typeof chart !== 'undefined' && chart) { //グラフ消す
           chart.destroy();
@@ -161,23 +160,23 @@
             ],
             labels: ['4月', 'May', 'June', 'July', 'August', 'September']
           }
-          chart_sample.classList.add('is-show');
+
           chart = new ApexCharts(document.querySelector("#chart"), options);
           chart.render();
           document.querySelector('#graph-display').innerText = "グラフ非表示";
           
-//           let start = Date.now();
-//           const chart_graph = document.querySelector('#chart');
+          let start = Date.now();
+          const chart_graph = document.querySelector('#chart');
 
-//           let timer = setInterval(function() {
-//             let timePassed = Date.now() - start;
+          let timer = setInterval(function() {
+            let timePassed = Date.now() - start;
 
-//             chart_graph.style.left = timePassed / 5 + 'px';
+            chart_graph.style.left = timePassed / 5 + 'px';
 //             chart_graph.style.top = timePassed / 5 + 'px';
 
-//             if (timePassed > 500) clearInterval(timer);
+            if (timePassed > 500) clearInterval(timer);
 
-//             }, 20);
+            }, 20);
        }
       };
       
