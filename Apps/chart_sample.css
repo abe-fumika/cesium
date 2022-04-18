@@ -6,7 +6,8 @@
         animation-duration: 5s;
         animation-iteration-count: 1;
         transition: 5s; */
-        animation: chartright 4s both 0s 1 normal;
+/*         animation: chartright 4s both 0s 1 normal; */
+        animation: chartright 2s both;
       }
       @keyframes chartright {
         0% {
