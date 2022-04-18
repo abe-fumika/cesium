@@ -2,7 +2,7 @@
         position: relative;
         top: 100px;
         left: 100px;
-/*         opacity: 0; */
+        opacity: 0;
 /*         animation-name: chartright;
         animation-duration: 5s;
         animation-iteration-count: 1;
@@ -11,9 +11,9 @@
         animation: chartright 2s;
 /*         transform:translateY(-10px); */
       }
-#chart.is-show {
+/* #chart.is-show {
     opacity: 1;
-}
+} */
 @keyframes chartright {
         0% {
           opacity: 0;
