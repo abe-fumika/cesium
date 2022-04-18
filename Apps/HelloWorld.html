@@ -44,7 +44,7 @@
       <button id="genczmlweight" disabled>車いす人流生成</button>
       <button id="toggle-geojson" disabled>経路ネットワーク編集トグル</button> -->
       <button id="graph-display" disabled>グラフ表示</button>
-      <button id="3d-object" disabled>3Dオブジェクト</button>
+      <button id="threed-object" disabled>3Dオブジェクト</button>
     </div>
     <div id="chart"></div>
     <script>
@@ -79,8 +79,8 @@
                     }
                   }
                 ]
-      document.querySelector('#3d-object').disabled = false; //ボタン有効
-      document.querySelector('#3d-object').onclick = function() {
+      document.querySelector('#threed-object').disabled = false; //ボタン有効
+      document.querySelector('#threed-object').onclick = function() {
         viewer.dataSources.add(Cesium.CzmlDataSource.load(czml));
       }
         
