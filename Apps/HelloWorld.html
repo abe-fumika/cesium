@@ -44,12 +44,48 @@
       <button id="genczmlweight" disabled>車いす人流生成</button>
       <button id="toggle-geojson" disabled>経路ネットワーク編集トグル</button> -->
       <button id="graph-display" disabled>グラフ表示</button>
+      <button id="3d-object" disabled>3Dオブジェクト</button>
     </div>
     <div id="chart"></div>
     <script>
       var viewer = new Cesium.Viewer("cesiumContainer");
+      var czml = [
+                  {
+                    id: "document",
+                    version: "1.0"
+                  },
+                  {
+                    id: "Vehicle2",
+                    description : "This is a missile",
+                    availability: "2012-08-04T16:01:00Z/2012-08-04T16:02:00Z",
+                    model:{
+                      gltf:"https://cesium.com/public/SandcastleSampleData/launchvehicle.glb"
+                    },
+                    orientation:{
+                      velocityReference: "#position"
+                    },
+                    position:{
+                      epoch:"2012-08-04T16:01:00Z",
+                      cartographicDegrees:[
+                        0,
+                        130.36212,
+                        33.59531,
+                        90.0,
+                        1,
+                        130.35147,
+                        33.59329,
+                        160.0,
+                      ],
+                    }
+                  }
+                ]
+      document.querySelector('#3d-object').disabled = false; //ボタン有効
+      document.querySelector('#3d-object').onclick = function() {
+        viewer.dataSources.add(Cesium.CzmlDataSource.load(czml));
+      }
+        
      
-      document.querySelector('#graph-display').disabled = false; //ボタン有効
+//       document.querySelector('#graph-display').disabled = false; //ボタン有効
       var chart;
       document.querySelector('#graph-display').onclick = function() {
         if (typeof chart !== 'undefined' && chart) { //グラフ消す
