@@ -81,7 +81,10 @@
             yaxis: {
               min: 0,
               max: 120,
-              tickAmount: 30
+              tickAmount: 30,
+              labels: {
+                show: false
+              }
             }
           }
           chart = new ApexCharts(document.querySelector("#chart"), options);
