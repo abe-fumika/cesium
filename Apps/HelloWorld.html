@@ -79,7 +79,8 @@
               categories: ['費用', '指標1', '指標2', '指標3', '指標4', '指標5']
             },
             yaxis: {
-              categories: [0, 30, 60, 90, 120]
+              min: 0,
+              max: 120
             }
           }
           chart = new ApexCharts(document.querySelector("#chart"), options);
