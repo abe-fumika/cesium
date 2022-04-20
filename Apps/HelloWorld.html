@@ -52,7 +52,7 @@
       document.querySelector('#graph-display').onclick = function() {
         if (typeof chart !== 'undefined' && chart) { // グラフ消す
           chart.destroy();
-//           chart = undefined;
+          chart = undefined;
           document.querySelector('#graph-display').innerText = "グラフ表示";
         } else {
           var options = {
